@@ -1,0 +1,61 @@
+---
+title: "Sample Report"
+author: "X.C."
+date: "2024-05-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# My Summary of Today.
+
+**This R workshop was so long but I learned something!** Overall, I had a great day but I am glad to be coming to the weekend.
+
+## How I feel about Things.
+
+*Thank goodness tomorrow is Friday.*
+
+### Working with R is fun.
+
+This is cool-looking code.
+
+1.  It is relatively easy to use (?)
+2.  It provides lots of functionality for data vis.
+3.  My lab partners all use it.
+
+-   thing 1
+
+-   thing 2
+
+-   thing 3
+
+[Center for Teaching Excellence](https://cte.rice.edu)
+
+### Loading Data and packages
+
+```{r load_data and packages, echo= FALSE, results= "hide", message=FALSE, warning=FALSE}
+gapminder <- read.csv("data/gapminder_data.csv", 
+                      stringsAsFactors = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+
+### Basic Plots
+
+```{r plot_data}
+ggplot(data = gapminder, 
+       mapping = aes(x = pop, y = lifeExp)) + 
+  geom_point(alpha = 0.3, color = 'salmon')
+```
+
+Add code in the markdown. It provides the output in the document. `r 2 + 2`
+
+```{r variable_definition, echo = FALSE, results= "hide"}
+US_2007 <- gapminder %>% 
+  filter(country == "United States", year == 2007)
+options(scipen = 999)
+```
+
+The 2007 us gross domestic product per capital is `r US_2007$gdpPercap`. 
