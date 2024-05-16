@@ -7,6 +7,8 @@ cats <- data.frame(coat = c("calico", "black", "tabby"),
                    weight = c(2.1, 5.0, 3.2), 
                    likes_string = c(1,0,1)) #c is the combine function 
 
+cats[1]
+
 # to show the column of the data frame 
 cats$weight
 
@@ -176,7 +178,7 @@ summary(gapminder_Africa)
 
 
 gapminder %>% 
-  filter(year == 2007) %>% 
+  filter(year == 2010) %>% 
   select(-year) 
 
 summary(gapminder_Africa) 
